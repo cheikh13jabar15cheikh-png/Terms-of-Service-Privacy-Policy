@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYPE CLAN — الشروط والأحكام وسياسة الخصوصية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0F1119;
+    --panel: #171A26;
+    --panel-raised: #1D2032;
+    --line: #2A2E42;
+    --ink: #ECEDF5;
+    --ink-dim: #9498AC;
+    --hype: #FF6A45;
+    --hype-dim: #4A2A20;
+    --gold: #F3B94D;
+    --ok: #35C98B;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 400;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,.brand{
+    font-family: 'Almarai', 'Tajawal', sans-serif;
+  }
+
+  /* Background texture: faint diagonal voice-channel "bars" motif */
+  .bg-motif{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(115deg, rgba(255,106,69,0.035) 0px, rgba(255,106,69,0.035) 1px, transparent 1px, transparent 64px),
+      radial-gradient(circle at 85% -10%, rgba(255,106,69,0.14), transparent 45%),
+      radial-gradient(circle at -10% 110%, rgba(243,185,77,0.10), transparent 40%);
+  }
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15,17,25,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+  }
+  .brand .dot{
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    background: var(--hype);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    box-shadow: 0 0 14px rgba(255,106,69,0.65);
+  }
+  nav{
+    display: flex;
+    gap: 8px;
+    background: var(--panel);
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  nav button{
+    font-family: 'Tajawal', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--ink-dim);
+    background: transparent;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  nav button.active{
+    color: var(--bg);
+    background: var(--hype);
+  }
+  nav button:not(.active):hover{
+    color: var(--ink);
+    background: var(--panel-raised);
+  }
+
+  main{
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 100px;
+  }
+
+  .doc-head{
+    margin-bottom: 44px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc-head .kicker{
+    color: var(--hype);
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+  .doc-head h1{
+    font-size: 2.15rem;
+    font-weight: 800;
+    margin: 0 0 12px;
+    line-height: 1.3;
+  }
+  .doc-head .meta{
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+
+  section.clause{
+    margin-bottom: 38px;
+  }
+  section.clause h2{
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 14px;
+  }
+  section.clause h2 .num{
+    color: var(--hype);
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    min-width: 1.6em;
+  }
+  section.clause p{
+    margin: 0 0 12px;
+    color: #D6D8E4;
+  }
+  section.clause ul{
+    margin: 0 0 12px;
+    padding-inline-start: 22px;
+    color: #D6D8E4;
+  }
+  section.clause li{
+    margin-bottom: 8px;
+  }
+  section.clause strong{
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .callout{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--gold);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 18px 0;
+    font-size: 0.94rem;
+    color: var(--ink-dim);
+  }
+  .callout strong{ color: var(--gold); }
+
+  .contact-box{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .contact-box .row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .contact-box .row:last-child{ border-bottom: none; }
+  .contact-box .label{ color: var(--ink-dim); }
+  .contact-box .value{ color: var(--ink); font-weight: 500; }
+
+  .tag{
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: rgba(243,185,77,0.10);
+    border: 1px solid rgba(243,185,77,0.25);
+    padding: 2px 9px;
+    border-radius: 6px;
+    margin-inline-start: 6px;
+  }
+
+  footer{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer a{ color: var(--hype); text-decoration: none; }
+
+  [hidden]{ display: none !important; }
+
+  @media (max-width: 560px){
+    .doc-head h1{ font-size: 1.7rem; }
+    .header-inner{ padding: 14px 16px; }
+    main{ padding: 40px 16px 80px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-motif"></div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand"><span class="dot"></span> HYPE CLAN</div>
+    <nav>
+      <button id="tab-tos" class="active" onclick="showDoc('tos')">الشروط والأحكام</button>
+      <button id="tab-privacy" onclick="showDoc('privacy')">سياسة الخصوصية</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== TERMS OF SERVICE ===================== -->
+  <article id="doc-tos">
+    <div class="doc-head">
+      <div class="kicker">HYPE CLAN — بوت ديسكورد</div>
+      <h1>الشروط والأحكام</h1>
+      <div class="meta">آخر تحديث: 3 سبتمبر 2026</div>
+    </div>
+
+    <section class="clause">
+      <h2><span class="num">01</span> مقدمة وقبول الشروط</h2>
+      <p>هذه الوثيقة تنظّم استخدامك لبوت <strong>HYPE CLAN</strong> ("البوت")، وهو بوت مخصص لسيرفرات Discord لإدارة الكلانات ونظام نقاط صوتي تلقائي وليدربورد حي. بإضافة البوت إلى سيرفرك أو استخدام أوامره، فإنك توافق على هذه الشروط. إذا كنت لا توافق عليها، يُرجى عدم إضافة البوت أو استخدامه.</p>
+      <p>مالك السيرفر ومشرفوه مسؤولون عن التأكد من أن جميع أعضاء السيرفر مطّلعون على هذه الشروط قبل استخدام أوامر البوت.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">02</span> وصف الخدمة</h2>
+      <p>يوفّر البوت الميزات التالية داخل سيرفرات Discord التي يُضاف إليها:</p>
+      <ul>
+        <li><strong>إدارة الكلانات:</strong> إنشاء الكلانات وحذفها، إضافة الأعضاء وإزالتهم، تحويل قنوات صوتية ورتب موجودة إلى كلان.</li>
+        <li><strong>نظام نقاط صوتي تلقائي:</strong> احتساب نقاط للكلان بناءً على الوقت الذي يقضيه أعضاؤه في القنوات الصوتية.</li>
+        <li><strong>البووستات:</strong> مضاعفات نقاط مؤقتة (×2 / ×3 / ×4) تُطبَّق على كاتيجوري صوتية محددة.</li>
+        <li><strong>الليدربورد الحي:</strong> رسالة تُحدَّث تلقائياً بترتيب الكلانات، مع نقل الكلانات الأعلى إلى كاتيجوري مميزة.</li>
+        <li><strong>نظام الدروبات (Drops):</strong> منشورات تفاعلية دورية داخل قنوات محددة.</li>
+      </ul>
+      <div class="callout"><strong>ملاحظة:</strong> قد تُضاف ميزات جديدة أو تُعدَّل أو تُزال دون إشعار مسبق، بحسب تطوّر البوت.</div>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">03</span> الأهلية والاستخدام المسؤول</h2>
+      <p>يجب أن يستوفي مستخدمو البوت الحد الأدنى للعمر المطلوب بموجب <strong>شروط خدمة Discord</strong> نفسها. استخدامك للبوت يفترض أنك ملتزم أيضاً بشروط خدمة Discord وإرشادات المجتمع الخاصة به.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">04</span> الصلاحيات وأدوار الاستخدام</h2>
+      <p>بعض الأوامر مقيّدة حسب الدور:</p>
+      <ul>
+        <li><strong>مشرف السيرفر (Admin):</strong> يملك صلاحية كاملة على أوامر الإنشاء والحذف وإعادة الضبط وإدارة البووستات والليدربورد.</li>
+        <li><strong>قائد الكلان:</strong> يملك صلاحية إضافة وإزالة أعضاء كلانه فقط.</li>
+        <li><strong>عضو الكلان:</strong> يملك صلاحية الاطّلاع على معلومات الكلانات والترتيب فقط.</li>
+      </ul>
+      <p>يتحمّل مالكو السيرفرات ومشرفوه المسؤولية الكاملة عن كيفية تهيئة البوت واستخدام صلاحياته داخل سيرفراتهم، بما في ذلك الرتب والقنوات التي يمنحها البوت صلاحية التحكم بها.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">05</span> الاستخدام المحظور</h2>
+      <p>يُمنع استخدام البوت لأي مما يلي:</p>
+      <ul>
+        <li>محاولة استغلال ثغرات في البوت أو قاعدة بياناته أو التلاعب بنظام النقاط بشكل غير مشروع.</li>
+        <li>إساءة استخدام الأوامر بقصد الإزعاج أو التعطيل أو استهداف أعضاء آخرين.</li>
+        <li>محاولة الوصول غير المصرَّح به إلى بيانات كلانات أو سيرفرات أخرى.</li>
+        <li>أي استخدام يخالف شروط خدمة Discord أو القوانين المعمول بها.</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">06</span> الملكية الفكرية</h2>
+      <p>الاسم "HYPE CLAN" وشعاره وكود البوت وتصميمه مملوكة لمطوّر البوت. لا يمنحك استخدام البوت أي حقوق ملكية عليه، ولا يجوز إعادة توزيعه أو استضافة نسخة معدَّلة منه تجارياً دون إذن مسبق.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">07</span> إخلاء المسؤولية وحدودها</h2>
+      <p>يُقدَّم البوت "كما هو" دون أي ضمانات، صريحة أو ضمنية، بشأن دقة النقاط أو استمرارية الخدمة أو خلوّها من الأخطاء. لا نتحمّل مسؤولية أي فقدان لبيانات الكلانات أو النقاط أو الإعدادات الناتج عن أعطال تقنية، أو توقف الاستضافة، أو إساءة استخدام من قبل مشرفي السيرفر.</p>
+      <p>لا يتحمّل مطوّر البوت مسؤولية أي أضرار غير مباشرة أو تبعية ناتجة عن استخدام البوت أو عدم القدرة على استخدامه.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">08</span> التعليق أو الإنهاء</h2>
+      <p>يحتفظ مطوّر البوت بالحق في تعليق أو إنهاء وصول أي سيرفر أو مستخدم إلى البوت، دون إشعار مسبق، في حال الاشتباه بمخالفة هذه الشروط أو إساءة استخدام واضحة. كما يمكن لمالك السيرفر إزالة البوت من سيرفره في أي وقت، ما يوقف جمع البيانات الجديدة الخاصة بذلك السيرفر.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">09</span> التعديلات على البوت والشروط</h2>
+      <p>يجوز تحديث هذه الشروط أو ميزات البوت من وقت لآخر. الاستمرار في استخدام البوت بعد نشر أي تعديل يُعدّ موافقة ضمنية على النسخة المحدَّثة. يُنصح بمراجعة هذه الصفحة دورياً.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">10</span> القانون الحاكم</h2>
+      <p>تخضع هذه الشروط وتُفسَّر وفقاً للقوانين المعمول بها في مقر إقامة مطوّر البوت، دون الإخلال بأي حقوق إلزامية قد تكفلها لك القوانين المحلية المعمول بها.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">11</span> التواصل</h2>
+      <p>لأي استفسار يتعلق بهذه الشروط:</p>
+      <div class="contact-box">
+        <div class="row"><span class="label">البريد الإلكتروني</span><span class="value">[أضف بريد الدعم هنا]</span></div>
+        <div class="row"><span class="label">سيرفر الدعم على Discord</span><span class="value">[أضف رابط السيرفر هنا]</span></div>
+      </div>
+    </section>
+  </article>
+
+  <!-- ===================== PRIVACY POLICY ===================== -->
+  <article id="doc-privacy" hidden>
+    <div class="doc-head">
+      <div class="kicker">HYPE CLAN — بوت ديسكورد</div>
+      <h1>سياسة الخصوصية</h1>
+      <div class="meta">آخر تحديث: 3 سبتمبر 2026</div>
+    </div>
+
+    <section class="clause">
+      <h2><span class="num">01</span> مقدمة</h2>
+      <p>توضّح هذه السياسة كيفية جمع بوت <strong>HYPE CLAN</strong> للبيانات ومعالجتها وتخزينها عند استخدامه داخل سيرفرات Discord. باستخدامك للبوت، فإنك توافق على الممارسات الموضّحة أدناه.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">02</span> البيانات التي نجمعها</h2>
+      <p>يجمع البوت البيانات التقنية اللازمة فقط لتشغيل ميزاته، وهي:</p>
+      <ul>
+        <li><strong>معرّفات Discord (IDs):</strong> معرّف السيرفر، معرّف المستخدم، معرّفات القنوات الصوتية والنصية، معرّفات الرتب، ومعرّفات الرسائل — وهي أرقام تقنية لا تتضمن اسمك الحقيقي أو بريدك الإلكتروني.</li>
+        <li><strong>بيانات الكلانات:</strong> اسم الكلان، قائدة، أعضاؤه، ونقاطه المتراكمة.</li>
+        <li><strong>جلسات الفويس:</strong> وقت دخول العضو للقناة الصوتية ووقت خروجه، تُستخدم فقط لاحتساب النقاط ثم لا تُحتفظ بها كسجل تفصيلي دائم.</li>
+        <li><strong>بيانات البووستات والدروبات:</strong> الكاتيجوري المستهدفة، قيمة المضاعِف، وقت الانتهاء، والقنوات المخصصة للدروبات.</li>
+      </ul>
+      <div class="callout"><strong>لا يقوم البوت</strong> بجمع محتوى رسائلك الخاصة، أو تسجيلات صوتية، أو بريدك الإلكتروني، أو أي بيانات دفع.</div>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">03</span> كيف نستخدم هذه البيانات</h2>
+      <ul>
+        <li>احتساب نقاط الكلانات وتحديث الليدربورد تلقائياً.</li>
+        <li>تطبيق مضاعِفات البووست على الكاتيجوريات الصحيحة.</li>
+        <li>إدارة عضوية الكلانات (إضافة/إزالة الأعضاء، نقل القيادة).</li>
+        <li>تنظيم قنوات الدروبات وتتبّع منشورات حروب الكلانات.</li>
+      </ul>
+      <p>لا تُستخدم البيانات لأي غرض إعلاني أو تسويقي، ولا تُباع أو تُشارَك مع أي طرف ثالث.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">04</span> أين تُخزَّن البيانات</h2>
+      <p>تُخزَّن بيانات البوت في قاعدة بيانات SQLite مستضافة على خوادم مزوّد الاستضافة الذي يشغّل البوت. تبقى البيانات مرتبطة بالسيرفر (Guild ID) الذي أُنشئت فيه، ولا تُشارَك بين سيرفرات مختلفة.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">05</span> مشاركة البيانات مع أطراف ثالثة</h2>
+      <p>يتواصل البوت مع <strong>Discord API</strong> فقط لتنفيذ وظائفه الأساسية (قراءة حالة القنوات الصوتية، إدارة الرتب، إرسال الرسائل). لا نشارك بياناتك مع أي جهة إعلانية أو تحليلية أو أي طرف ثالث آخر خارج هذا النطاق.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">06</span> مدة الاحتفاظ بالبيانات</h2>
+      <p>تبقى بيانات الكلانات والنقاط محفوظة طالما البوت مضاف إلى السيرفر. عند إزالة البوت من السيرفر، أو عند حذف كلان بأمر <span class="tag">/clan-delete</span>، تُحذف البيانات المرتبطة بذلك الكلان أو ذلك السيرفر من قاعدة البيانات.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">07</span> حقوقك</h2>
+      <p>يمكنك أنت أو مشرفو سيرفرك في أي وقت:</p>
+      <ul>
+        <li>طلب حذف بيانات كلان معيّن أو بيانات سيرفر بالكامل بالتواصل معنا عبر القنوات أدناه.</li>
+        <li>إزالة البوت من السيرفر لإيقاف جمع أي بيانات جديدة فوراً.</li>
+        <li>الاستفسار عن أي بيانات محفوظة تخص معرّفك داخل سيرفر معيّن.</li>
+      </ul>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">08</span> أمان البيانات</h2>
+      <p>نتّخذ إجراءات معقولة لحماية قاعدة البيانات من الوصول غير المصرَّح به، بما في ذلك تقييد الوصول لمطوّر البوت فقط. مع ذلك، لا يمكن ضمان أمان مطلق لأي نظام متصل بالإنترنت.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">09</span> خصوصية القاصرين</h2>
+      <p>يتبع البوت الحد الأدنى للعمر المعمول به في شروط خدمة Discord نفسها. لا نجمع عمداً بيانات إضافية عن القاصرين تتجاوز معرّفات Discord التقنية الموضّحة أعلاه.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">10</span> التعديلات على هذه السياسة</h2>
+      <p>قد تُحدَّث هذه السياسة من وقت لآخر لتعكس تغييرات في وظائف البوت أو متطلبات قانونية. سيُشار إلى تاريخ آخر تحديث أعلى الصفحة.</p>
+    </section>
+
+    <section class="clause">
+      <h2><span class="num">11</span> التواصل</h2>
+      <p>لأي استفسار بخصوص خصوصيتك أو لطلب حذف بياناتك:</p>
+      <div class="contact-box">
+        <div class="row"><span class="label">البريد الإلكتروني</span><span class="value">[أضف بريد الدعم هنا]</span></div>
+        <div class="row"><span class="label">سيرفر الدعم على Discord</span><span class="value">[أضف رابط السيرفر هنا]</span></div>
+      </div>
+    </section>
+  </article>
+
+</main>
+
+<footer>
+  © 2026 HYPE CLAN. هذه الوثيقة مُعدّة كنقطة انطلاق ولا تُغني عن مراجعة قانونية حسب بلد إقامتك وقاعدة مستخدميك.
+</footer>
+
+<script>
+  function showDoc(which){
+    document.getElementById('doc-tos').hidden = which !== 'tos';
+    document.getElementById('doc-privacy').hidden = which !== 'privacy';
+    document.getElementById('tab-tos').classList.toggle('active', which === 'tos');
+    document.getElementById('tab-privacy').classList.toggle('active', which === 'privacy');
+    window.scrollTo({top: 0, behavior: 'instant'});
+  }
+</script>
+
+</body>
+</html>
